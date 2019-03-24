@@ -6,6 +6,8 @@ import game.Settings;
 import game.enemy.Enemy;
 import game.physics.BoxCollider;
 import game.renderer.AnimationRenderer;
+import game.scene.SceneManager;
+import game.scene.SenceGameOver;
 import tklibs.SpriteUtils;
 
 import java.awt.*;
@@ -54,7 +56,7 @@ public class Player extends GameObject {
         positionPlayerx = this.position.x;
         positionPlayery = this.position.y;
         this.velocity.set(vX, vY);
-        this.velocity.setLength(10);
+        this.velocity.setLength(2);
     }
 
     private void playerLimit() {
@@ -81,5 +83,11 @@ public class Player extends GameObject {
             hpPlayer=0;
             this.deactive();
         }
+    }
+
+    @Override
+    public void deactive() {
+        super.deactive();
+        SceneManager.signNewScene(new SenceGameOver());
     }
 }

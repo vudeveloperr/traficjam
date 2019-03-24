@@ -35,9 +35,14 @@ public class Enemy extends GameObject {
     @Override
     public void run() {
         super.run();
+        updateSpeed();
         this.checkIntersects();
         this.checkPass();
         this.checkEnd();
+    }
+
+    private void updateSpeed() {
+        velocity.setLength(Settings.ENEMY_SPEED);
     }
 
     static Font font = new Font("Verdana",Font.BOLD,30);

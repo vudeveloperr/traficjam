@@ -1,14 +1,12 @@
 package game.item;
 
+import game.Settings;
 import game.player.Player;
 
 import game.renderer.AnimationRenderer;
-import tklibs.SpriteUtils;
 
-import java.awt.image.BufferedImage;
-
-public class ItemHP extends Item {
-    public ItemHP(){
+public class ItemSpeed extends Item {
+    public ItemSpeed(){
 
         this.renderer = new AnimationRenderer("/Users/nguyenvanvu/Documents/CI15/Game_Traffic_Jam/ci-begin-master copy/assets/images/items/speedUp",10);
         this.velocity.set(0,3);
@@ -16,7 +14,10 @@ public class ItemHP extends Item {
     }
 
     @Override
-    public void powerUp(Player player){
-        player.hpPlayer++;
+    public void powerUp(){
+        Settings.ENEMY_SPEED = 3;
+        Settings.BACKGROUND_SPEED = 1;
+        Settings.ITEM_SPEED_FRAME_LEFT = 120;
     }
 }
+

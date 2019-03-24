@@ -25,6 +25,7 @@ public class BackgroundManager extends  GameObject
     @Override
     public void run() {
         super.run();
+        this.updateSpeed();
         if(Player.hpPlayer > 0) {
             if (currentDisplay.position.y > -5) {
                 setAbove(currentHide, currentDisplay);
@@ -39,6 +40,13 @@ public class BackgroundManager extends  GameObject
               b2.velocity.set(0,0);
         }
     }
+
+    private void updateSpeed() {
+        b1.velocity.setLength(Settings.BACKGROUND_SPEED);
+        b2.velocity.setLength(Settings.BACKGROUND_SPEED);
+    }
+
+
     public void setAbove(Background a, Background b)
     {
         Vector2D newAPosition = b.position.clone();

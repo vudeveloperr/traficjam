@@ -8,6 +8,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class AnimationRenderer extends Renderer
 {
@@ -41,8 +43,17 @@ public class AnimationRenderer extends Renderer
     public AnimationRenderer(String directoryPath,int frameChange , boolean isOnce)
     {
         File folder = new File(directoryPath);
+        java.util.List<String> fileNames = Arrays.asList(folder.list());
+        fileNames.sort(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.compareTo(o2);
+            }
+        });
+        System.out.println(fileNames);
         ArrayList<BufferedImage> images = new ArrayList<>();
-        for(String filename : folder.list())
+
+        for(String filename : fileNames)
         {
             if(filename.endsWith(".png")) {
                 images.add(SpriteUtils.loadImage(directoryPath + "/" + filename));

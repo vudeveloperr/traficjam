@@ -31,6 +31,7 @@ public class GameObject {
         try {
             return cls.getConstructor().newInstance();
         } catch(Exception ex) {
+            ex.printStackTrace();
             return null;
         }
     }

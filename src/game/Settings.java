@@ -10,4 +10,5 @@ public class Settings {
     public static int PLAYER_WIDTH = 26;
     public static int PLAYER_HEIGHT = 60;
     public static int PLAYER_SPEED = 7;
+    public static int ITEM_SPEED_FRAME_LEFT ;
 }

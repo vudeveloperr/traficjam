@@ -38,12 +38,15 @@ public class EnemyDown extends GameObject {
     @Override
     public void run() {
         super.run();
+        updateSpeed();
         this.checkIntersects();
         this.checkPass();
         this.checkEnd();
-        //this.upDown();
-    }
 
+    }
+    private void updateSpeed() {
+        velocity.setLength(Settings.ENEMY_SPEED);
+    }
 
     static Font font = new Font("Verdana",Font.BOLD,30);
     // ham font kha nang khi su dung

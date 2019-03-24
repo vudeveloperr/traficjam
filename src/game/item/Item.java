@@ -8,7 +8,6 @@ public class Item extends GameObject  {
     BoxCollider boxCollider;
 
     public Item(){
-        //GameObject.
         this.boxCollider = new BoxCollider(this , 12 ,12);
     }
     @Override
@@ -16,12 +15,12 @@ public class Item extends GameObject  {
         super.run();
         Player player = GameObject.findIntersects(Player.class,this.boxCollider);
         if(player != null) {
-            this.powerUp(player);
+            this.powerUp();
             this.deactive();
         }
     }
 
-    public void powerUp(Player player){
+    public void powerUp(){
 
     }
 
